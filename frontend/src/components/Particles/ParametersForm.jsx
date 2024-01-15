@@ -14,7 +14,6 @@ export default function ParametersForm({socket}) {
         const x = formData.X.value
         const y = formData.Y.value
         const params = {x: x, y: y, particles:formData.particles.value, foods: formData.foods.value}
-        console.log(params)
         socket.send(JSON.stringify(params))
       }
       

@@ -1,6 +1,6 @@
 
 export const setupWebSocket = (setSimulationData) => {
-    const socket = new WebSocket('ws://192.168.15.2:8000/ws/simulation/');
+    const socket = new WebSocket('ws://localhost:8000/ws/simulation/');
   
     socket.onopen = () => {
       console.log('WebSocket connection opened');

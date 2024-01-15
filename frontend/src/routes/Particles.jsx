@@ -25,8 +25,7 @@ export default function Particles() {
         newSocket.close();
       }
     };
-  }, []); // Empty dependency array ensures that this effect runs only once on mount
-  
+  }, []); 
   
   return (
     <Box pt={2}>

@@ -36,5 +36,4 @@ class SimulationConsumer(AsyncWebsocketConsumer):
         for tick_data in simulate(x, y, particle_no=particles, food_no=foods):
             await asyncio.sleep(0.05)
             await self.send_data_to_frontend(tick_data)
-        print('terminado')
 

@@ -40,20 +40,6 @@ class Arena:
         return random_position
     
     def check_collision(self):
-
-        # particle_positions = {(particle.position.x, particle.position.y): particle for particle in self.particles}
-        # food_positions = self.food_map
-        # collisions = food_positions.keys() & particle_positions.keys()
-        # if collisions:
-        #     for collision in collisions:
-        #         collided_food = self.food_map.pop(collision)
-        #         collided_particle = particle_positions.get(collision)
-        #         self.foods.remove(collided_food)
-        #         self.quadtree.remove(collided_food)
-        #         collided_particle.check_collision(collided_food)
-        #         closest_food = collided_particle.closest_food(self.quadtree)
-        #         self.closest_food_map[collided_particle.name] = closest_food
-
                 
         foods = set((food.position.x, food.position.y) for food in self.foods)
         particles = set((particle.position.x, particle.position.y) for particle in self.particles)
@@ -112,17 +98,6 @@ class Arena:
         return particle
 
 
-    # def spawn_food(self, nutrition, position):
-    #     nutrition_value = nutrition
-    #     food = Food(nutrition_value, position)
-    #     self.add_food(food)
-    #     return food
-    # def spawn_particle(self, size, position):
-    #     name = ''.join(choices(string.ascii_uppercase + string.digits, k=4))
-    #     hunger = 0
-    #     particle = Particle(name, size, hunger, position)
-    #     self.add_particle(particle)
-    #     return particle
 
 
 
@@ -134,11 +109,15 @@ class Particle:
         self.hunger = hunger
         self.velocity = (2-(size*0.25))
         self.position = position
+        self.consumed = 0
+        self.calories = 0
         
 
     def feed(self, closest_food):
         self.hunger += closest_food.nutrition
-        if self.hunger >= 10:
+        self.calories += closest_food.nutrition
+        self.consumed += 1
+        if self.hunger >= self.size:
             self.size += 1
             self.velocity = (2-(self.size*0.25))
             self.hunger = 0
