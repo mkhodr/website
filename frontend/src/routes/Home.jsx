@@ -14,7 +14,7 @@ export default function Home() {
       templateColumns={[2 ,null ,'repeat(5, 1fr)']}
       gap={3}
     >
-      <GridItem rowSpan={[1, null ,3]} colSpan={[2, null, 1]} bg={bg}> <HomeContainer/> </GridItem>
+      <GridItem rowSpan={[1, null ,3]} colSpan={[2, null, 1]} bg={bg}> </GridItem>
       <GridItem rowSpan={[2, null ,1]} colSpan={[2, null, 2]} bg={bg2}> </GridItem>
       <GridItem rowSpan={[2, null ,1]} colSpan={[2, null, 2]} bg={bg2}> </GridItem>
       <GridItem rowSpan={[4, null ,2]} colSpan={[2, null, 4]} bg={bg3}> </GridItem>

@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   frontend:
+    container_name: frontend_vite
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -11,10 +12,24 @@ services:
     ports:
       - 5173:5173
     volumes:
-      - ./frontend:/frontend
+      - ./frontend:/home/frontend
 
-    
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+
+  celery:
+    container_name: celery_worker
+    build: ./backend
+    command: celery -A core worker -l INFO -B
+    volumes:
+      # - backend_volume:/app
+        - ./backend:/home/backend
+    depends_on:
+      - redis
+
   backend:
+    container_name: backend_django
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -26,4 +41,8 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./backend:/backend
+      # - backend_volume:/home/backend
+        - ./backend:/home/backend
+
+# volumes:
+#   backend_volume:
