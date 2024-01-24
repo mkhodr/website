@@ -1,2 +1,4 @@
 **/.env
 .env
+backend/db.sqlite3
+backend/celerybeat-schedule
