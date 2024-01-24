@@ -1,5 +1,4 @@
 import { Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
-import StatBox from "./StatBox";
 
 function Statistics({array}) {
     return(
@@ -15,6 +14,17 @@ function Statistics({array}) {
       </Stat>
     ))
   );}
+
+
+function StatBox({name, number, unit}) {
+  return (
+    <>
+    <StatLabel fontSize={'calc(8px + 0.190625vw)'}>{name.toUpperCase()}</StatLabel>
+    <StatNumber fontSize={'calc(10px + 0.70625vw)'}>{number}</StatNumber>
+    <StatHelpText fontSize={'calc(6px + 0.390625vw)'}>{unit}</StatHelpText>
+    </>
+  );
+}
 
 export default Statistics
 

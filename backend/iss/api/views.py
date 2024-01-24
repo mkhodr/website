@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 class IssViewSet(ModelViewSet):
     serializer_class = IssSerializer
-    queryset = Iss.objects.all().order_by('-id')[0:400]
+    queryset = Iss.objects.all().order_by('-id')
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
