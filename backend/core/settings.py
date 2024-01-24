@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&8t!)2e^ur8j)egl$e(zm(x#l*0f3#d3xvin2@3&rh16)xsqm^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.15.2']
+ALLOWED_HOSTS = ['localhost', '192.168.15.2', '127.0.0.1']
 
 
 # Application definition
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 ASGI_APPLICATION = 'core.asgi.application'
   
 
-CORS_ALLOWED_ORIGINS = ['http://192.168.15.2:5173']
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
